@@ -27,8 +27,20 @@ if __name__ == '__main__':
     hypos = ['Bowl 1', 'Bowl 2']
     pmf = Cookie(hypos)
 
+    print("Prior distribution:")
     pmf.Print()
 
     pmf.Update('vanilla')
 
+    print("Updated with 'vanilla':")
+    pmf.Print()
+
+    del pmf
+    pmf = Cookie(hypos)
+
+    dataset = ['vanilla', 'chocolate', 'vanilla']
+    for data in dataset:
+        pmf.Update(data)
+
+    print("Updated with ['vanilla', 'chocolate', 'vanilla']:")
     pmf.Print()
